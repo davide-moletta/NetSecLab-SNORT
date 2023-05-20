@@ -24,16 +24,19 @@ Repository for the Network Security Laboratory (SNORT) of group 4
 
 
 =================================================================
+TODO
 
 SNORT
 
 -    Install Desktop Environment
--    Install latest SNORT version (Remove SNORT3 & Clean bash)
--    Fix slow closure of SNORT (if possible)
+- ☑ Install latest SNORT version (Remove SNORT3 & Clean .profile)
+- ☑ Fix slow closure of SNORT = ```--daq afpacket```
+- ☑ Enable ipv4 forwarding
+- ☑ Disable ipv6
 
 CLIENTS
 
--    Fix ping not reaching clients
+- ☑ Fix ping not reaching clients
 
 GENERAL
 
@@ -41,3 +44,11 @@ GENERAL
 - ☑ Add packets
 -    Slides
 -    Report
+
+=================================================================
+Notes
+
+- ```tcpdump -ni ethX``` (to disable dns resolution)
+- ```nslookup google.com 1.1.1.1```  dnsname dnsserver
+- ```apk add binaries/snort3-3.1.61.0-r0.apk --allow-untrusted``` installing self compiled host
+
