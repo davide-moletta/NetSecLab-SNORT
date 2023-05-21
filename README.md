@@ -54,7 +54,8 @@ IDS
  5. Fifth exercise (common with group5) alert SQL injection and add a message to the rule
  6. Port scanning module
  7. Sixth exercise with the wireshark dump
-6. Exercises IPS
+
+IPS
  1. Do almost the same but blocking instead of alert and see result (for pcacp will be 'would-block')
 
 =================================================================
