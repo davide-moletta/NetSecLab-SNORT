@@ -63,9 +63,6 @@ Notes
 - ```tcpdump -ni ethX``` (to disable dns resolution)
 - ```nslookup google.com 1.1.1.1```  dnsname dnsserver
 - ```apk add binaries/snort3-3.1.61.0-r0.apk --allow-untrusted``` installing self compiled host
-- ```
-$ modprobe -a vboxsf 
-$ mount -t vboxsf Materiale /mnt/shared
-```
+- ```$ modprobe -a vboxsf; mount -t vboxsf Materiale /mnt/shared```
 - ```VBoxClient --draganddrop``` enable services Guest Addition
 
