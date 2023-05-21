@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Exec=VBoxClient --clipboard
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_US]=VBox clipboard
+Name=VBox clipboard
+Comment=
