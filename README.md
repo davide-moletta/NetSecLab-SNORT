@@ -24,7 +24,7 @@ Repository for the Network Security Laboratory (SNORT) of group 4
 
 
 =================================================================
-##TODO
+## TODO
 
 SNORT
 
@@ -45,7 +45,7 @@ GENERAL
 -    Slides
 -    Report
 
-##EXERCISE
+## EXERCISE
 IDS
  1. First exercise with ping (common with group5) (generate alert for ping from every source to every destination) together
  2. Second exercise alert ping from a source IP to a destination IP not together
