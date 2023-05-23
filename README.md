@@ -48,15 +48,25 @@ GENERAL
 ## EXERCISE
 IDS
  1. First exercise with ping (common with group5) (generate alert for ping from every source to every destination) together
- 2. Second exercise alert ping from a source IP to a destination IP not together
- 3. Third exercise use different protocol to generate an alert for the scapy packet
- 4. Fourth exercise something on ports 53 (allow company dns and not allow external or same subnet. Allow external only for unitn.it domains usign sd_pattern)
- 5. Fifth exercise (common with group5) alert SQL injection and add a message to the rule
- 6. Port scanning module
- 7. Sixth exercise with the wireshark dump
+ 2a. Second exercise alert ping from a source IP to a destination IP not together
+ 2b. A restring only to specific flag
+ 3a. Third exercise use different protocol to generate an alert for the scapy packet
+ 3b. Restringing to SYN/ACK
+ 4. Fourth exercise something on ports 53 (allow company dns and not allow external ‘use variables’ or same subnet)
+ 5. On user agent (RegEx)
+ 6. Fifth exercise (common with group5) alert SQL injection and add a message to the rule
+ 7. Port scanning (other module)
+ 8. Sixth exercise with the wireshark dump (better windows)
 
 IPS
- 1. Do almost the same but blocking instead of alert and see result (for pcacp will be 'would-block')
+Do almost the same but blocking instead of alert and see result (for pcacp will be 'would-block')
+ 1. Ping seam subnet (not working)
+ 2. Ping intra subnet (working) & TCP (working)
+ 3a. Use the rule 4a and see that only to external is blocking, on the same subnet not obviously
+ 3b. Allow only for unitn.it domains usign sd_pattern (check rules order for IPS)
+ 4. Port scanning if blocking
+ 5. SQL block drop
+ 
 
 =================================================================
 Notes
