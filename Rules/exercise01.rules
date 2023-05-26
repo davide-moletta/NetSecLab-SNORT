@@ -1,0 +1,5 @@
+#exercise 1 rule
+#ping from any to any
+#
+
+alert icmp any any -> any any (sid:01)
