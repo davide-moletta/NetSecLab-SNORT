@@ -51,8 +51,8 @@ IDS
  2a. Second exercise alert ping from a source IP to a destination IP not together
  2b. A restring only to specific flag
  3a. Third exercise use different protocol to generate an alert for the scapy packet
- 3b. Restringing to SYN/ACK
- 4. Fourth exercise something on ports 53 (allow company dns and not allow external ‘use variables’ or same subnet)
+ 3b. Restringing to ACK (*A for SYN/ACK or RST/ACK)
+ 4. Fourth exercise something on ports 53 (allow company dns 8i.103 and not allow external ‘use variables for Home Network’ or same subnet)
  5. On user agent (RegEx)
  6. Fifth exercise (common with group5) alert SQL injection and add a message to the rule
  7. Port scanning (other module)
@@ -60,7 +60,7 @@ IDS
 
 IPS
 Do almost the same but blocking instead of alert and see result (for pcacp will be 'would-block')
- 1. Ping seam subnet (not working)
+ 1. Ping same subnet (not working)
  2. Ping intra subnet (working) & TCP (working)
  3a. Use the rule 4a and see that only to external is blocking, on the same subnet not obviously
  3b. Allow only for unitn.it domains usign sd_pattern (check rules order for IPS)
