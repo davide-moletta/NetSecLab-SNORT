@@ -1,0 +1,11 @@
+#exercise 07
+#HTTP request with strange user agent from HOME_NET to .103
+
+alert HTTP $HOME_NET any -> any any (
+	#http_header:field user-agent;
+	#pcre:"/.*Wget\/.*/";
+	http_raw_header;
+	pcre:"/^User-Agent:/im";	# Wget\/.*/im";
+	sid:07;
+	msg:"Different user agent detected"
+)
