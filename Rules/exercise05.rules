@@ -1,0 +1,5 @@
+#exercise 05
+#TCP packet from .101 to .103 with only ACK flag with nc
+#with * is and/or contains 
+
+alert tcp 192.168.77.101 any -> 192.168.88.103 any (flags:*A; sid:05; msg:"ACK tcp packet")

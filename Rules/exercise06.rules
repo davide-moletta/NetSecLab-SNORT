@@ -1,0 +1,4 @@
+#exercise 06
+#DNS request from any to .103
+
+alert udp $HOME_NET any -> !192.168.88.103 53 (sid:06; msg:"DNS request")

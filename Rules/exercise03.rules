@@ -1,0 +1,4 @@
+#exercise 03
+#ping from .101 to .102 restricted
+#itype 8 for request, 0 for reply
+alert icmp 192.168.77.101 any -> 192.168.77.102 any (itype:0; sid:03; msg:"reply from .101 to .102")
