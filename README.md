@@ -60,12 +60,12 @@ IDS
 
 IPS
 Do almost the same but blocking instead of alert and see result (for pcacp will be 'would-block').
-20. Ping same subnet (not working)
-21. Ping intra subnet (working) & TCP (working)
-22. Use the rule 4a and see that only to external is blocking, on the same subnet not obviously
-23. Allow only for unitn.it domains usign sd_pattern (check rules order for IPS)
-24. Port scanning if blocking
-25. SQL block drop
+ 20. Ping same subnet (not working)
+ 21. Ping intra subnet (working) & TCP (working)
+ 22. Use the rule 4a and see that only to external is blocking, on the same subnet not obviously
+ 23. Allow only for unitn.it domains usign sd_pattern (check rules order for IPS)
+ 24. Port scanning if blocking
+ 25. SQL block drop
  
 
 =================================================================
