@@ -60,6 +60,7 @@ IDS
 
 IPS
 Do almost the same but blocking instead of alert and see result (for pcacp will be 'would-block').
+To execute in inline mode use ```-i ethx:ethy -Q```
  1. (20) Ping same subnet (not working)
  2. (21) Ping intra subnet (working) & TCP (working)
  3. (22) Allow only for unitn.it domains usign sd_pattern (check rules order for IPS)
