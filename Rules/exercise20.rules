@@ -1,0 +1,4 @@
+#exercise 1 rule
+#ping from any to any
+
+block icmp any any -> any any (sid:10; msg:"An ICMP message I should block")
