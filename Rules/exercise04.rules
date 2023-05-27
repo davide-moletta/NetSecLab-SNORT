@@ -1,4 +1,4 @@
 #exercise 04
-#TCP pakcet from .101 to .103
+#alert TCP packet from 192.168.77.101 to 192.168.88.103
 
-alert tcp 192.168.77.101 any -> 192.168.88.103 any (sid:04; msg:"any tcp packet")
+alert tcp 192.168.77.101 any -> 192.168.88.103 any (sid:04; msg:"A TCP packet from client 101 to client 103")

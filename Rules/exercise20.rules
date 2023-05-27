@@ -1,4 +1,4 @@
-#exercise 1 rule
-#ping from any to any
+#exercise 20
+#block ping from any IP to any IP
 
-block icmp any any -> any any (sid:10; msg:"An ICMP message I should block")
+block icmp any any -> any any (sid:20)

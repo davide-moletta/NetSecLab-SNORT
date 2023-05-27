@@ -1,5 +1,4 @@
-#exercise 1 rule
-#ping from any to any
-#
+#exercise 01
+#alert ping from any IP to any IP
 
 alert icmp any any -> any any (sid:01)
