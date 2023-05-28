@@ -1,0 +1,48 @@
+IDS (snort3 -i br77 -R snort/rules/exerciseXX.rules)
+
+ex 1
+snort3 -i br77 -R snort/rules/exercise01.rules
+ping from any ip to any ip 
+
+ex2
+snort3 -i br77 -R snort/rules/exercise02.rules
+ping from .101 to .102 (only packets sent from 101)
+
+ex3
+snort3 -i br77 -R snort/rules/exercise03.rules
+ping from .101 to .102 (only replies from 101)
+
+ex4
+snort3 -i br77 -R snort/rules/exercise04.rules
+on client .101 python3 packet.py and give as input the ip 192.168.88.103
+
+ex5
+snort3 -i br77 -R snort/rules/exercise05.rules
+on client .103 nc -l -p <portnumber>
+on client .101 nc 192.168.88.103 <portnumber>
+
+ex6 (maybe configure 192.168.88.103 as DNS_NET)
+snort3 -i br77 -R snort/rules/exercise06.rules -c /usr/local/etc/snort/snort.lua --lua "HOME_NET='192.168.77.0/24'"
+on client .101 or .102 nslookup google.com 1.1.1.1 (generate alerts)
+on client .101 or .102 nslookup google.com 192.168.88.103 (does not generate alerts)
+
+ex7
+snort3 -i br77 -R snort/rules/exercise07.rules -c /usr/local/etc/snort/snort.lua --lua "HOME_NET='192.168.77.0/24'"
+on client .103 python3 -m http.server <OPTIONAL|portnumber>
+on client .101 or .102 wget 192.168.88.103:<portnumber>
+
+IPS (snort3_ips -R snort7rules/exerciseXX.rules)
+
+ex1 
+snort3_ips -R snort/rules/exercise20.rules
+ping from any ip to any ip
+
+ex2
+snort3_ips -R snort/rules/exercise21.rules
+on client .103 nc -l -p <portnumber>
+on client .101 nc 192.168.88.103 <portnumber>
+
+ex3
+snort3_ips -R snort/rules/exercise22.rules
+on any ip nslookup google.com <any ip> (blocked)
+on any ip nslookup unitn.it <any ip> (not blocked)
