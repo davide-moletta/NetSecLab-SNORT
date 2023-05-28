@@ -1,4 +1,4 @@
-#exercise 024
+#exercise 025
 #block SQLi with DROP|INSERT commands
 
 reject http any any -> any 80

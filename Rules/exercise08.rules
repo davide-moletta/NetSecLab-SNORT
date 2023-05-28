@@ -1,7 +1,7 @@
 #exercise 08
 #alert SQLi using PCAP file
 
-alert http 192.168.56.11 any -> 192.168.56.10 80
+alert http any any -> any 80
 (
 	http_uri:query;
 	content:"search=",nocase;

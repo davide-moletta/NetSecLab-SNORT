@@ -1,4 +1,4 @@
-#exercise 21
+#exercise 22
 #block TCP packet from 192.128.77.101 to 192.168.88.103 with only ACK flag with nc
 #with * is contains 
 

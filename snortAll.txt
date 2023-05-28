@@ -38,7 +38,9 @@ ex9 (scan port)
 ???
 
 ex10 (Qackbot on pcap)
-snort3_pcap -r snort/dumps/xxxxx
+snort3_qakbot -r snort/dumps/Qakbot/2023-05-24-obama264-Qakbot-infection.pcap -R snort/rules/exercise10.rules 
+to be more complete (-R snort/rules/snort3-community-rules/snort3-community.rules)
+
 
 IPS (snort3_ips -R snort7rules/exerciseXX.rules)
 

@@ -1,0 +1,58 @@
+#exercise 10
+# Qakbot infection
+# https://www.malware-traffic-analysis.net/2023/05/24/index.html
+
+alert file
+(
+	file_type: ZIP;
+	flow:to_client,established;
+	sid: 100001;
+	msg: "Alert on ZIP file"
+)
+
+alert file
+(
+	file_type: MSEXE;
+	flow:to_client,established;
+	sid: 100002;
+	msg: "Alert on DAT file"
+)
+
+alert udp any any -> any 53
+(
+	content:"|0d 61 64 75 62 75 69 6c 64 65 72 73 63 6f 03 63 6f 6d 00|";
+	sid: 100003;
+	msg:"DNS request for 'adubuildersco.com' domain"
+)
+
+alert tcp any any -> 142.118.221.248 2222
+(
+	flow:to_server,established;
+	sid: 100004;
+	msg:"Connection to Qakbot C2"
+)
+
+alert tcp any any -> 201.130.154.90 443
+(
+	flow:to_server,established;
+	sid: 100005;
+	msg:"Connection to secondary Qakbot C2"
+)
+
+alert http any any -> 160.153.53.37 80
+(
+	flow:to_server,established;
+	http_method; content:"GET",fast_pattern;
+	http_uri; content:"/ewukhyqpjz.zip",fast_pattern,nocase;
+	sid: 100006;
+	msg:"Download of malicious ZIP GET /ewukhyqpjz/ewukhyqpjz.zip"
+)
+
+alert http any any -> 45.76.58.72 80
+(
+	flow:to_server,established;
+	http_method; content:"GET",fast_pattern;
+	http_uri;content:"/aKUVYL8o0uv.dat",fast_pattern,nocase;
+	sid: 100007;
+	msg:"Download of malicious ZIP GET /aKUVYL8o0uv.dat"
+)

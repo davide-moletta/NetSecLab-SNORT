@@ -56,7 +56,7 @@ IDS
  7. On user agent (content already parsed)
  8. Exercise in common with group5 (zeek) alert SQL injection on pcap
  9. Port scanning (other module)
- 10. Cool exercise with the wireshark dump on Qakbot
+ 10. Cool exercise with the wireshark dump on Qakbot ([Link]https://www.malware-traffic-analysis.net/2023/05/24/index.html)
 
 IPS
 Do almost the same but blocking instead of alert and see result (for pcacp will be 'would-block').
