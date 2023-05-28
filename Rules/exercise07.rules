@@ -4,7 +4,7 @@
 alert http $HOME_NET any -> any any
 (
 	http_header:field user-agent;
-	content:!"Wget";
-	sid:07;
+	content:!"wget", nocase;
+	sid:7;
 	msg:"Different user agent detected in HTTP request from HOME network"
 )

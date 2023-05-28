@@ -52,11 +52,11 @@ IDS
  3. A restring only to specific flag
  4. Third exercise use different protocol to generate an alert for the scapy packet
  5. Restringing to ACK (*A for SYN/ACK or RST/ACK)
- 6. Fourth exercise something on ports 53 (allow company dns 8i.103 and not allow external ‘use variables for Home Network’ or same subnet)
- 7. On user agent (RegEx)
- 8. Fifth exercise (common with group5) alert SQL injection and add a message to the rule
+ 6. Fourth exercise something on ports 53 (allow company dns 88.103 and not allow external ‘use variables for Home Network’ or same subnet)
+ 7. On user agent (content already parsed)
+ 8. Exercise in common with group5 (zeek) alert SQL injection on pcap
  9. Port scanning (other module)
- 10. Sixth exercise with the wireshark dump (better windows)
+ 10. Cool exercise with the wireshark dump on Qakbot
 
 IPS
 Do almost the same but blocking instead of alert and see result (for pcacp will be 'would-block').
@@ -65,9 +65,9 @@ Instead we now use NFQ and forware the packets to the net stack of kernel
 ```iptables -I FORWARD -j NFQUEUE --queue-num=0 --queue-bypass; snort --daq-dir /usr/local/lib/daq -c snort/snort_ips_nfq.lua -R snort/rules/exercise01.rules -A alert_full -Q````
  1. (20) Ping same subnet (not working)
  2. (21) Ping intra subnet (working) & TCP (working)
- 3. (22) Allow only for unitn.it domains usign sd_pattern (check rules order for IPS)
+ 3. (22) Allow only for unitn.it domains usign content|hex|
  4. (23) Port scanning if blocking
- 5. (24) SQL block drop
+ 5. (24) SQL block DROP|INSERT
  
 
 =================================================================

@@ -1,0 +1,11 @@
+#exercise 08
+#alert SQLi using PCAP file
+
+alert http 192.168.56.11 any -> 192.168.56.10 80
+(
+	http_uri:query;
+	content:"search=",nocase;
+	pcre:"/(.*[\"\']\;)+.*/";
+	sid:8;
+	msg:"Detect SQL command in search parameter"
+)
