@@ -60,7 +60,9 @@ IDS
 
 IPS
 Do almost the same but blocking instead of alert and see result (for pcacp will be 'would-block').
-To execute in inline mode use ```-i ethx:ethy -Q```
+To execute in inline for AF_packet mode use ```-i ethx:ethy -Q```
+Instead we now use NFQ and forware the packets to the net stack of kernel
+```iptables -I FORWARD -j NFQUEUE --queue-num=0 --queue-bypass; snort --daq-dir /usr/local/lib/daq -c snort/snort_ips_nfq.lua -R snort/rules/exercise01.rules -A alert_full -Q````
  1. (20) Ping same subnet (not working)
  2. (21) Ping intra subnet (working) & TCP (working)
  3. (22) Allow only for unitn.it domains usign sd_pattern (check rules order for IPS)
