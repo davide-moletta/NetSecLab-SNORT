@@ -1,0 +1,9 @@
+Normalmente per router
+iptables -I FORWARD -j NFQUEUE --queue-num=0 --queue-bypass
+snort --daq-dir /usr/local/lib/daq -c snort/snort_ips_nfq.lua -R snort/rules/exercise01.rules -A alert_full -Q
+
+Per beccare anche bridge
+modprobe br_netfilter
+echo 1 > /proc/sys/net/bridge/bridge-nf-call-iptables
+##iptables -t nat -A PREROUTING -j NFQUEUE --queue-num=0 --queue-bypass
+
