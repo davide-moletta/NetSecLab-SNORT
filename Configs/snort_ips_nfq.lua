@@ -2,42 +2,81 @@
 -- Snort++ configuration
 ---------------------------------------------------------------------------
 
--- there are over 200 modules available to tune your policy.
--- many can be used with defaults w/o any explicit configuration.
--- use this conf as a template for your specific configuration.
+HOME_NET = '192.168.77.0/24'
 
--- 1. configure defaults
--- 2. configure inspection
--- 3. configure bindings
--- 4. configure performance
--- 5. configure detection
--- 6. configure filters
--- 7. configure outputs
--- 8. configure tweaks
+DNS_SERVER = [[192.168.88.103]]
 
----------------------------------------------------------------------------
--- 1. configure defaults
----------------------------------------------------------------------------
-
--- HOME_NET and EXTERNAL_NET must be set now
--- setup the network addresses you are protecting
-HOME_NET = 'any'
-
--- set up the external network addresses.
--- (leave as "any" in most situations)
 EXTERNAL_NET = 'any'
 
---include 'snort_defaults.lua'
+--include '/usr/local/etc/snort/snort_defaults.lua'
+
+default_variables =
+{
+    nets =
+    {
+        HOME_NET = HOME_NET,
+        EXTERNAL_NET = EXTERNAL_NET,
+        DNS_SERVER = DNS_SERVER
+    }
+}
+
+---------------------------------------------------------------------------
+-- default wizard
+---------------------------------------------------------------------------
+
+http_methods =
+{
+    'GET', 'HEAD', 'POST', 'PUT', 'DELETE', 'TRACE', 'CONNECT',
+    'VERSION_CONTROL', 'REPORT', 'CHECKOUT', 'CHECKIN', 'UNCHECKOUT',
+    'MKWORKSPACE', 'LABEL', 'MERGE', 'BASELINE_CONTROL',
+    'MKACTIVITY', 'ORDERPATCH', 'ACL', 'PATCH', 'BIND', 'LINK',
+    'MKCALENDAR', 'MKREDIRECTREF', 'REBIND', 'UNBIND', 'UNLINK',
+    'UPDATEREDIRECTREF', 'PROPFIND', 'PROPPATCH', 'MKCOL', 'COPY',
+    'MOVE', 'LOCK', 'UNLOCK', 'SEARCH', 'BCOPY', 'BDELETE', 'BMOVE',
+    'BPROPFIND', 'BPROPPATCH', 'POLL', 'UNSUBSCRIBE', 'X_MS_ENUMATTS',
+    'NOTIFY * HTTP/', 'OPTIONS * HTTP/', 'SUBSCRIBE * HTTP/', 'UPDATE * HTTP/',
+    '* * HTTP/'
+}
+
+default_wizard =
+{
+    spells =
+    {
+        { service = 'http', proto = 'tcp',
+          to_server = http_methods, to_client = { 'HTTP/' } },
+    }
+}
 
 ---------------------------------------------------------------------------
 -- 2. configure inspection
 ---------------------------------------------------------------------------
+stream = { }
+stream_ip = { }
+stream_icmp = { }
+stream_tcp = { }
+stream_udp = { }
 
--- mod = { } uses internal defaults
--- you can see them with snort --help-module mod
+dns = { }
+http_inspect = { }
+http2_inspect = { }
 
--- mod = default_mod uses external defaults
--- you can see them in snort_defaults.lua
+---------------------------------------------------------------------------
+-- 3. configure bindings
+---------------------------------------------------------------------------
+
+wizard = default_wizard
+
+binder =
+{
+    -- port bindings required for protocols without wizard support
+    { when = { proto = 'udp', ports = '53', role='server' },  use = { type = 'dns' } },
+    { when = { proto = 'tcp', ports = '53', role='server' },  use = { type = 'dns' } },
+    { when = { service = 'dns' },              use = { type = 'dns' } },
+    { when = { service = 'http' },             use = { type = 'http_inspect' } },
+    { when = { service = 'http2' },            use = { type = 'http2_inspect' } },
+
+    { use = { type = 'wizard' } }
+}
 
 ---------------------------------------------------------------------------
 -- 5. configure detection

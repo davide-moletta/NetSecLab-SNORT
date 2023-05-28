@@ -4,6 +4,8 @@
 
 HOME_NET = '192.168.77.0/24'
 
+DNS_SERVER = [[192.168.88.103]]
+
 EXTERNAL_NET = 'any'
 
 --include '/usr/local/etc/snort/snort_defaults.lua'
@@ -13,7 +15,8 @@ default_variables =
     nets =
     {
         HOME_NET = HOME_NET,
-        EXTERNAL_NET = EXTERNAL_NET
+        EXTERNAL_NET = EXTERNAL_NET,
+        DNS_SERVER = DNS_SERVER
     }
 }
 
