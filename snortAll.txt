@@ -4,45 +4,61 @@ ex 1
 snort3 -i br77 -R snort/rules/exercise01.rules
 ping from any ip to any ip 
 
-ex2
+ex2 (icmp)
 snort3 -i br77 -R snort/rules/exercise02.rules
 ping from .101 to .102 (only packets sent from 101)
 
-ex3
+ex3 (icmp flag)
 snort3 -i br77 -R snort/rules/exercise03.rules
 ping from .101 to .102 (only replies from 101)
 
-ex4
+ex4 (tcp)
 snort3 -i br77 -R snort/rules/exercise04.rules
 on client .101 python3 packet.py and give as input the ip 192.168.88.103
 
-ex5
+ex5 (ACK)
 snort3 -i br77 -R snort/rules/exercise05.rules
 on client .103 nc -l -p <portnumber>
 on client .101 nc 192.168.88.103 <portnumber>
 
-ex6 (maybe configure 192.168.88.103 as DNS_NET)
-snort3 -i br77 -R snort/rules/exercise06.rules -c /usr/local/etc/snort/snort.lua --lua "HOME_NET='192.168.77.0/24'"
+ex6 (dns)
+snort3 -i br77 -R snort/rules/exercise06.rules -c snort/confs/snort_ids.lua
 on client .101 or .102 nslookup google.com 1.1.1.1 (generate alerts)
 on client .101 or .102 nslookup google.com 192.168.88.103 (does not generate alerts)
 
-ex7
-snort3 -i br77 -R snort/rules/exercise07.rules -c /usr/local/etc/snort/snort.lua --lua "HOME_NET='192.168.77.0/24'"
+ex7 (useragent)
+snort3 -i br77 -R snort/rules/exercise07.rules -c snort/confs/snort_ids.lua
 on client .103 python3 -m http.server <OPTIONAL|portnumber>
 on client .101 or .102 wget 192.168.88.103:<portnumber>
 
+ex8 (SQLi on pcap)
+snort3_pcap -r snort/dumps/sqlinj.pcap -R snort/rules/exercise08.rules -c snort/confs/snort_ids.lua
+
+ex9 (scan port)
+???
+
+ex10 (Qackbot on pcap)
+snort3_pcap -r snort/dumps/xxxxx
+
 IPS (snort3_ips -R snort7rules/exerciseXX.rules)
 
-ex1 
-snort3_ips -R snort/rules/exercise20.rules
+ex21 
+snort3_ips -R snort/rules/exercise21.rules
 ping from any ip to any ip
 
-ex2
-snort3_ips -R snort/rules/exercise21.rules
+ex22
+snort3_ips -R snort/rules/exercise22.rules
 on client .103 nc -l -p <portnumber>
 on client .101 nc 192.168.88.103 <portnumber>
 
-ex3
-snort3_ips -R snort/rules/exercise22.rules
+ex23
+snort3_ips -R snort/rules/exercise23.rules
 on any ip nslookup google.com <any ip> (blocked)
 on any ip nslookup unitn.it <any ip> (not blocked)
+
+ex24 (scan port)
+???
+
+ex25 (SQLi on pcap "would block")
+snort3_pcap -r snort/dumps/sqlinj.pcap -R snort/rules/exercise24.rules
+
