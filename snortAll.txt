@@ -14,7 +14,9 @@ ping from .101 to .102 (only replies from 101)
 
 ex4 (tcp)
 snort3 -i br77 -R snort/rules/exercise04.rules
-on client .101 python3 packet.py and give as input the ip 192.168.88.103
+on client .101 python3 packet.py and give as input the ip 192.168.88.103 (alerted)
+on client .101 python3 packet.py and give as input the ip 192.168.77.101 (not alerted)
+on client .102 python3 packet.py and give as input the ip 192.168.88.103 (not alerted)
 
 ex5 (ACK)
 snort3 -i br77 -R snort/rules/exercise05.rules
@@ -26,9 +28,9 @@ snort3 -i br77 -R snort/rules/exercise06.rules -c snort/confs/snort_ids.lua
 on client .101 or .102 nslookup google.com 1.1.1.1 (generate alerts)
 on client .101 or .102 nslookup google.com 192.168.88.103 (does not generate alerts)
 
-ex7 (useragent)
+ex7 (useragent) NOT WORKING
 snort3 -i br77 -R snort/rules/exercise07.rules -c snort/confs/snort_ids.lua
-on client .103 python3 -m http.server <OPTIONAL|portnumber>
+on client .103 python3 -m http.server <portnumber>
 on client .101 or .102 wget 192.168.88.103:<portnumber>
 
 ex8 (SQLi on pcap)
