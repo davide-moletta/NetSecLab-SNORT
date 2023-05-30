@@ -1,9 +1,9 @@
 #exercise 22
 #alert DNS request with strange user agent from HOME network to not company DNS
 
-reject udp $HOME_NET any -> !$DNS_SERVER 53
+drop udp $HOME_NET any -> !$DNS_SERVER 53
 (
-	content:!"|05 75 6e 69 74 6e 02 69 74 00|";
+	content:"|05 75 6e 69 74 6e 02 69 74 00|";
 	sid:22;
 	msg:"DNS request detected to a not standard DNS server"
 )
