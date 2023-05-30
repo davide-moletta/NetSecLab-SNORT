@@ -1,4 +1,7 @@
 #exercise 02
 #alert ping from 192.168.77.101 to 192.168.77.102
 
-alert icmp 192.168.77.101 any -> 192.168.77.102 any (sid:02; msg:"ping from client 101 to client 102")
+alert icmp 192.168.77.101 any -> 192.168.77.102 any (
+	sid:2;
+	msg:"ping from client 101 to client 102"
+)

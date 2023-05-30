@@ -1,5 +1,9 @@
-#exercise 22
+#exercise 12
 #block TCP packet from 192.128.77.101 to 192.168.88.103 with only ACK flag with nc
 #with * is contains 
 
-block tcp 192.168.77.101 any -> 192.168.88.103 any (flags:*A; sid:11; msg:"blocked tcp packet with ACK from client 101 to client 103")
+block tcp 192.168.77.101 any -> 192.168.88.103 any (
+	flags:*A;
+	sid:12;
+	msg:"blocked tcp packet with ACK from client 101 to client 103"
+)

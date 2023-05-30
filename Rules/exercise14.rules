@@ -1,7 +1,7 @@
-#exercise 024
+#exercise 14
 #block SQLi with DROP|INSERT commands
 
-reject http any any -> any 80
+block http any any -> any 8080
 (
 	http_uri:query;
 	content:"search=",nocase;

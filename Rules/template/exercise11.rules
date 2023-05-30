@@ -1,4 +1,4 @@
 #exercise 11
 #block ping from any IP to any IP
 
-block icmp any any -> any any (sid:11)
+block ...

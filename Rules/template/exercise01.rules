@@ -1,0 +1,4 @@
+#exercise 01
+#alert ping from any IP to any IP
+
+alert <proto> <src_ip> <src_port> -> <dest_ip> <dest_port>

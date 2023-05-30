@@ -1,9 +1,8 @@
 #exercise 06
-#alert DNS request with strange user agent from HOME network to not company DNS
+#alert DNS request from HOME network to not company DNS
 
 alert udp $HOME_NET any -> !$DNS_SERVER 53
 (
-	#flow:to_server;
 	sid:6;
 	msg:"DNS request detected to a not standard DNS server"
 )

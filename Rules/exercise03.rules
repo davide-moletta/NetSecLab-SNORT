@@ -2,4 +2,8 @@
 #alrt ping from 192.168.77.101 to 192.168.77.102 restricted to echo reply
 #itype 8 for request, 0 for reply
 
-alert icmp 192.168.77.101 any -> 192.168.77.102 any (itype:0; sid:03; msg:"ping reply from client 101 to client 102")
+alert icmp 192.168.77.101 any -> 192.168.77.102 any (
+	itype:0;
+	sid:3;
+	msg:"ping reply from client 101 to client 102"
+)

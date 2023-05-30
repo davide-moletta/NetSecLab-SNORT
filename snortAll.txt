@@ -31,7 +31,7 @@ on client .101 or .102 nslookup google.com 192.168.88.103 (does not generate ale
 ex7 (useragent) NOT WORKING
 snort3 -i br77 -R snort/rules/exercise07.rules -c snort/confs/snort_ids.lua
 on client .103 python3 -m http.server <portnumber>
-on client .101 or .102 wget 192.168.88.103:<portnumber>
+on client .101 or .102 curl 192.168.88.103:<portnumber>
 
 ex8 (SQLi on pcap)
 snort3_pcap -r snort/dumps/sqlinj.pcap -R snort/rules/exercise08.rules -c snort/confs/snort_ids.lua
@@ -40,6 +40,8 @@ ex9 (scan port)
 ???
 
 ex10 (Qackbot on pcap)
+#unzip snort/dumps/Qakbot.zip -d snort/dumps/Qakbot
+
 snort3_qakbot -r snort/dumps/Qakbot/2023-05-24-obama264-Qakbot-infection.pcap -R snort/rules/exercise10.rules 
 to be more complete (-R snort/rules/snort3-community-rules/snort3-community.rules)
 

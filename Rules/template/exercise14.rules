@@ -1,0 +1,3 @@
+#exercise 14
+#block SQLi with DROP|INSERT commands
+#Hint: use 'sqlinj.pcap' and regex101.com
